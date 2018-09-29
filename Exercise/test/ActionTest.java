@@ -8,21 +8,20 @@ class ActionTest {
 
     @Test
     void getId() {
-        HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
+        /**HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 
-       assertEquals(action.getIdAction(), 1);
+        assertEquals(action.getIdAction(), 1);
 
         Action action2 = new Action(date, store);
         assertNotNull(action2);
 
-        assertEquals(action2.getIdAction(), 2);
+        assertEquals(action2.getIdAction(), 2);**/
     }
 
     @Test
@@ -31,17 +30,16 @@ class ActionTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 
-        assertEquals(action.getDate(), date);
+        assertNotNull(action.getDate());
 
-        Action action2 = new Action(date, store);
+        Action action2 = new Action(store);
         assertNotNull(action2);
 
-        assertEquals(action2.getDate(), date);
+        assertNotNull(action2.getDate());
     }
 
     @Test
@@ -50,8 +48,7 @@ class ActionTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 
@@ -71,8 +68,7 @@ class ActionTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 
@@ -87,8 +83,7 @@ class ActionTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 
@@ -111,8 +106,7 @@ class ActionTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         assertNotNull(store);
 
-        Date date = new Date();
-        Action action = new Action(date, store);
+        Action action = new Action(store);
 
         assertNotNull(action);
 

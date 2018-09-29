@@ -111,7 +111,7 @@ class StoreTest {
 
         assertEquals(store.getActions().size(), 0);
 
-        Action action = new Action(new Date(), store);
+        Action action = new Action(store);
 
         assertTrue(store.getActions().contains(action));
     }
@@ -126,7 +126,7 @@ class StoreTest {
 
         assertEquals(store.getActions().size(), 0);
 
-        Action action = new Action(new Date(), store);
+        Action action = new Action(store);
 
         assertTrue(store.getActions().contains(action));
 
@@ -165,19 +165,5 @@ class StoreTest {
         Employee employee = new Employee("John", store);
 
         assertEquals(store.searchEmployee("John"), employee);
-    }
-
-    @Test
-    void searchActionByDate() {
-        HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
-
-        assertNotNull(headQuarter);
-
-        Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
-
-        Date date = new Date();
-        Action action = new Action(date, store);
-
-        assertTrue(store.searchActionByDate(date).contains(action));
     }
 }

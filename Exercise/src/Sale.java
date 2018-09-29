@@ -1,13 +1,17 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-
+/**
+ * This class creates a sales order. Sale extends the class Action
+ */
 public class Sale extends Action {
-    private double price;
-    private Employee employee;
+    private double price; //Total price of the sale
+    private Employee employee; //Employee that registered the sales order
 
-    public Sale(Date date, Store store, Employee employee) {
-        super(date, store);
+    /**
+     * Sale's constructor
+     * @param store Store where the supply order took place
+     * @param employee Employee that registered the sales order
+     */
+    public Sale(Store store, Employee employee) {
+        super(store);
         this.price = 0;
 
         if(store.getEmployees().contains(employee))
@@ -16,56 +20,34 @@ public class Sale extends Action {
             this.employee = null;
     }
 
+    /**
+     * @return The total price of the sale
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * @return Employee that registered the sales order
+     */
     public Employee getEmployee() {
         return employee;
     }
 
+    /**
+     * This function adds a product and its quantity to the sales order. the sales order's price is updated here
+     * @param product Product to be added
+     * @param quantity Product's quantity to be added
+     */
     public void addProducts(Product product, int quantity) {
         this.getProductsQuantities().put(product, quantity);
         this.price += product.getPrice() * quantity;
     }
 
     /**
-     * Verifies if the product exists on one of the warehouses, if it doesn't a supply order is created
+     * This function verifies if the product exists on one of the warehouses, if it doesn't a supply order is created
      */
     public void completeSale() {
 
-        for (HashMap.Entry<Product, Integer> entries : this.getProductsQuantities().entrySet()) {
-            Product product = entries.getKey();
-            int quantity = entries.getValue();
-
-            ArrayList<Warehouse> warehouses = this.getStore().getWarehouses();
-
-            int idWarehouse = 0;
-
-            for (int i = 0; i < warehouses.size(); i++)
-                for (HashMap.Entry<Product, Integer> entriesWarehouse : warehouses.get(i).getProducts().entrySet()) {
-                    int productReference = entriesWarehouse.getKey().getReference();
-                    int productQuantity = entriesWarehouse.getValue();
-
-                    if (productReference == product.getReference())
-                        if (productQuantity >= quantity) {
-                            idWarehouse = warehouses.get(i).getId();
-
-                            Warehouse warehouse = this.getStore().searchWarehouse(idWarehouse);
-
-                            int afterChange = warehouse.changeProductsQuantity(product, quantity);
-                            if (afterChange == quantity) {
-                                Supply supply = new Supply(new Date(), this.getStore(), warehouse);
-                                supply.addProducts(product, 10); //restore quantity
-                                break;
-                            } else if (afterChange != 0)
-                                quantity = warehouse.changeProductsQuantity(product, quantity);
-                            else
-                                break;
-
-                        }
-
-                }
-        }
     }
 }

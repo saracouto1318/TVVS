@@ -3,6 +3,16 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/apiguardian-api-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/assertj-core-3.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/junit-jupiter-api-5.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/junit-jupiter-engine-5.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/junit-platform-commons-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/junit-platform-engine-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/opentest4j-1.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/tests-core-0.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/tests-junit5-0.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/vavr-0.9.0.jar"/>
+	<classpathentry kind="lib" path="/Users/saracouto/Downloads/jar_files/vavr-match-0.9.0.jar"/>
 	<classpathentry kind="output" path="out/production/Exercise"/>
 </classpath>

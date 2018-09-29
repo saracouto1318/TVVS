@@ -60,16 +60,19 @@ class HeadQuarterTest {
         assertArrayEquals(headQuarter.getStores().toArray(), emptyStores);
 
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
+        assertNotNull(store);
 
         assertEquals(headQuarter.getStores().size(), 1);
 
         Store store2 = new Store("Supermarket", "June's Street", "991645655", "super2@info.com", headQuarter);
-
-        assertEquals(headQuarter.getStores().size(), 1);
-
-        Store store3 = new Store("Supermarket2", "July's Street", "991645656", "super3@info.com", headQuarter);
+        assertNotNull(store2);
 
         assertEquals(headQuarter.getStores().size(), 2);
+
+        Store store3 = new Store("Supermarket2", "July's Street", "991645656", "super3@info.com", headQuarter);
+        assertNotNull(store3);
+
+        assertEquals(headQuarter.getStores().size(), 3);
     }
 
     @Test
@@ -82,6 +85,8 @@ class HeadQuarterTest {
         assertArrayEquals(headQuarter.getStores().toArray(), emptyStores);
 
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
+
+        assertNotNull(store);
 
         assertEquals(headQuarter.getStores().size(), 1);
     }
@@ -112,79 +117,24 @@ class HeadQuarterTest {
         Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
         headQuarter.addStore(store);
 
-        assertNotNull(headQuarter.searchStore("Supermarket"));
-        assertEquals(headQuarter.searchStore("Supermarket"), store);
-        assertNull(headQuarter.searchStore("Supermarket2"));
+        assertNotNull(headQuarter.searchStore("Supermarket", "May's Street"));
+        assertEquals(headQuarter.searchStore("Supermarket", "May's Street"), store);
+        assertNull(headQuarter.searchStore("Supermarket2", "May's Street"));
 
     }
 
-    /**
-     * Bom para exercício 2
-     */
     @Test
     void searchEmployeesByStore() {
-        HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
 
-        assertNotNull(headQuarter);
-
-        Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
-
-        assertEquals(headQuarter.searchEmployeesByStore(store).size(), 0);
-
-        Employee employee = new Employee("John", store);
-
-        assertEquals(headQuarter.searchEmployeesByStore(store).size(), 1);
-
-        HeadQuarter headQuarter2 = new HeadQuarter("Tulip Street", "222111666", "info2@info.com");
-
-        assertNotNull(headQuarter2);
-
-        Store store2 = new Store("Supermarket2", "June's Street", "991645655", "super2@info.com", headQuarter2);
-
-        assertEquals(headQuarter.searchEmployeesByStore(store2).size(), 0);
     }
 
-    /**
-     * Bom para exercício 3
-     */
     @Test
     void searchEmployeeByStoreByName() {
-        HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
-
-        assertNotNull(headQuarter);
-
-        Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
-
-        assertEquals(headQuarter.searchEmployeesByStore(store).size(), 0);
-
-        Employee employee = new Employee("John", store);
-
-        assertEquals(headQuarter.searchEmployeeByStoreByName(store, "John"), employee);
 
     }
 
-    /**
-     * Bom para exercício 2
-     */
     @Test
     void searchStoreByEmployee() {
-        HeadQuarter headQuarter = new HeadQuarter("Roses Street", "222333444", "info@info.com");
-
-        assertNotNull(headQuarter);
-
-        Store store = new Store("Supermarket", "May's Street", "991345654", "super@info.com", headQuarter);
-
-        assertEquals(headQuarter.searchEmployeesByStore(store).size(), 0);
-
-        Employee employee = new Employee("John", store);
-
-        assertEquals(headQuarter.searchStoreByEmployee(employee).getName(), "Supermarket");
-
-        HeadQuarter headQuarter2 = new HeadQuarter("Roses Street", "222333455", "info2@info.com");
-
-        assertNotNull(headQuarter2);
-
-        Employee employee2 = new Employee("Anna", new Store("Jumbo", "Road 5", "111222333", "jumbo@info.com", headQuarter2));
-        assertNull(headQuarter.searchStoreByEmployee(employee2));
+        
     }
 }
